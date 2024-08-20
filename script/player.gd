@@ -1,10 +1,13 @@
 extends Area2D
 
+signal hit
 const SPEED := 400
-var screen_size
+@onready var screen_size = get_viewport_rect().size
+@onready var anim = $anim
+@onready var collision = $collision
 # Called wheconstn the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_viewport_rect().size
+	hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,4 +17,17 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity=velocity.normalized() * SPEED
 	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	position = position.clamp(Vector2.ZERO, screen_size )
+
+# Verificaçao da colisao do player com os bugs
+func _on_body_entered(body):
+	hide()
+	hit.emit()
+	collision.set_deferred("disabled", true)
+	
+func start_pos(pos):
+	position = pos
+	show()
+	collision.disabled = false
+	
+
