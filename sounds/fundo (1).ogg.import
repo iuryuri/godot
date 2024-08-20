@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://u4tjdo5ndkx1"
+path="res://.godot/imported/fundo (1).ogg-bbed902f20b0459d8adb7225e3b4d052.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/fundo (1).ogg"
+dest_files=["res://.godot/imported/fundo (1).ogg-bbed902f20b0459d8adb7225e3b4d052.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

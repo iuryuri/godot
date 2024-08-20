@@ -4,24 +4,25 @@ extends Node2D
 var score
 
 
-func _ready():
-	new_game()
-
-
 func game_over():
 	$BugTimer.stop()
 	$ScoreTimer.stop()
+	$HUD.show_game_over()
+	$bgMusic.stop()
+	$gameOverSound.play()
 	
 func new_game():
 	$StartTime.start()
 	$player.start_pos($StartPosition.position)
 	score = 0
-
-
+	$HUD.update_score(score)
+	$HUD.show_message("VAMO LA")
+	$bgMusic.play()
 
 
 func _on_score_timer_timeout():
 	score += 1
+	$HUD.update_score(score)
 
 
 func _on_start_time_timeout():
